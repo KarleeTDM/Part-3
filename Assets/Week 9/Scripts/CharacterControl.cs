@@ -7,7 +7,8 @@ using TMPro;
 
 public class CharacterControl : MonoBehaviour
 {
-    public TextMeshProUGUI VillagerType;
+    public TextMeshProUGUI currentSelection;
+    public static CharacterControl Instance;
     public static Villager SelectedVillager { get; private set; }
     public static void SetSelectedVillager(Villager villager)
     {
@@ -17,9 +18,10 @@ public class CharacterControl : MonoBehaviour
         }
         SelectedVillager = villager;
         SelectedVillager.Selected(true);
+        Instance.currentSelection.text = villager.ToString();
     }
-    public void Update()
+    private void Start()
     {
-        VillagerType.text = SelectedVillager.ToString();
+        Instance = this;
     }
 }

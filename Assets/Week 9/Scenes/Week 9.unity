@@ -982,7 +982,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b654b526d4ac7844f81eb035acc14178, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VillagerType: {fileID: 763789819}
+  currentSelection: {fileID: 763789819}
 --- !u!4 &321446994
 Transform:
   m_ObjectHideFlags: 0
@@ -4826,7 +4826,7 @@ GameObject:
   - component: {fileID: 4499165781864035062}
   - component: {fileID: 3152632007069524077}
   m_Layer: 0
-  m_Name: Thief
+  m_Name: Mark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6469,6 +6469,7 @@ MonoBehaviour:
   knifePrefab: {fileID: 3871564979539789689, guid: 1a029d589283c354c8953e09188a499e, type: 3}
   spawnPoint1: {fileID: 1762366610}
   spawnPoint2: {fileID: 2138733345}
+  dashSpeed: 7
 --- !u!212 &5192610755699568078
 SpriteRenderer:
   m_ObjectHideFlags: 0
