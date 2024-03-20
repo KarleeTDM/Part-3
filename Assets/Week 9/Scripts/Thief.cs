@@ -8,12 +8,14 @@ public class Thief : Villager
     public Transform spawnPoint1;
     public Transform spawnPoint2;
     public float dashSpeed = 7;
+    Coroutine dashing;
     protected override void Attack()
     {
-        for (int i = 0; i < 2; i++)
+        if (dashing != null)
         {
-            StartCoroutine(Dash());
+            StopCoroutine(dashing);
         }
+        dashing = StartCoroutine(Dash());
     }
     IEnumerator Dash()
     {
