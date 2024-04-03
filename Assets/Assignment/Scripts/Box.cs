@@ -9,4 +9,8 @@ public class Box : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
     }
+    protected virtual void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("You touched a box!");
+    }
 }

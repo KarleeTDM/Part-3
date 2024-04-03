@@ -8,16 +8,19 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rb;
     public float force;
     public float jump;
+    public static string I;
+    Coroutine jumping;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        I = "did the work"; // Clever, isn't it?
     }
     void Update()
     {
         direction.x = Input.GetAxis("Horizontal");
         if (Input.GetButtonDown("Jump"))
         {
-            rb.AddForce(new Vector2(rb.velocity.x, jump));
+            jumping = StartCoroutine(Jump());
         }
     }
     private void FixedUpdate()
@@ -31,5 +34,13 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.localScale = new Vector3(-1, 1, 1);
         }
+    }
+    IEnumerator Jump()
+    {
+        rb.AddForce(new Vector2(rb.velocity.x, jump));
+        Debug.Log("Jump!");
+        yield return new WaitForSeconds(1f);
+        Debug.Log("Coroutines are fun.");
+        yield return null;
     }
 }
